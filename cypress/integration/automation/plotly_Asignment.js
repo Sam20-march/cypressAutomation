@@ -36,6 +36,7 @@ describe(`Home page test`, () => {
         homePage.getCypressInstall();
     })
 
+    // To do: Identify CSS value for the circle element - As of now it shown as tw-ring-color: rgb(59 130 246 / .5) which is blue color
     it(`Validate green circle is around “Test Analytics”`, () => {
         const productPage = new ProductPage();
         productPage.clickOnProductOption();
