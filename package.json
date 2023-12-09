@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node_modules\\.bin\\cypress run",
-    "headTest": "npm run test -- --headed"
+    "headTest": "npm run test -- --headed",
+    "chromeTest": "npm run test -- --browser chrome"
   },
   "author": "",
   "license": "ISC",
