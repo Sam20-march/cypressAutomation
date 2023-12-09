@@ -36,6 +36,14 @@ describe(`Home page test`, () => {
         homePage.getCypressInstall();
     })
 
+    it(`Validate green circle is around “Test Analytics”`, () => {
+        const productPage = new ProductPage();
+        productPage.clickOnProductOption();
+        productPage.clickOnSmartOrchestration();
+        productPage.scrollToTestAnalytics();
+        
+    })
+
     
 
 
