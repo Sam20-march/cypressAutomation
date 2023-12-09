@@ -1,12 +1,13 @@
 /// <reference types="Cypress"/>
 import CypressPage  from "../pageObject/CypressPage";
-import CompanyPage from "../pageObject/CompanyPage"
+import CompanyPage from "../pageObject/CompanyPage";
 import ProductPage from "../pageObject/ProductPage";
 
 describe(`Home page test`, () => {
 
     beforeEach(() => {
         cy.visit(`https://www.cypress.io/`);
+        cy.viewport(window.screen.width, window.screen.height);
     })
     
     it(`Valdiate Weekly Download numbes are visiable on scroll to "Loved by OSS,trusted by Enterprise"`, () => {
@@ -30,6 +31,12 @@ describe(`Home page test`, () => {
         
     })
 
+    it(`Validate text on Cypress install`, ()=>{
+        const homePage = new CypressPage();
+        homePage.getCypressInstall();
+    })
+
+    
 
 
 })

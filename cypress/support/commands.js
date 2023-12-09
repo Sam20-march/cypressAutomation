@@ -23,3 +23,24 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+// Navigate to broser 
+Cypress.Commands.add('vist', value => {
+  cy.visit(value);
+  cy.viewport(window.screen.width, window.screen.height);
+})
+
+// Utility function to capture clipboard Text
+Cypress.Commands.add('assertValueCopiedToClipboard', value => {
+    cy.window().then(win => {
+      win.navigator.clipboard.readText().then(text => {
+        expect(text).to.eq(value)
+      })
+    })
+})
+
+// Utility function to getPage
+Cypress.Commands.add('getPage',value => {
+    cy.get(value).click();
+})
