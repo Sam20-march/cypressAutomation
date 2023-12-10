@@ -1,24 +1,30 @@
-pipline{
-    agent any
-
-    stages { 
-        stage('Build'){
-            //The steps section defines a series of one or more steps to be executed in a given stage directive.
+pipeline {
+    agent any 
+    options {    
+        ansiColor('xterm')
+    }
+    stages {
+        stage('Build') { 
             steps {
-                echo "Building the application"
+                script {
+                    checkout([
+                        $class: 'GitSCM',
+                        branches: [[name: '*/main']], // Specify the branch you want to checkout
+                        userRemoteConfigs: [[url: 'https://github.com/Sam20-march/cypressAutomation']]
+                    ])
+                }
             }
         }
-        stage('Testing') {
+        stage('Test') { 
             steps {
                 bat "npm i"
                 bat "npx cypress run test"
             }
         }
-        stage('Deploy'){
+        stage('Deploy') { 
             steps {
                 echo "Deploying Now"
             }
         }
     }
-
 }
